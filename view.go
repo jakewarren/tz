@@ -27,7 +27,7 @@ import (
 const UIWidth = 94
 
 func (m model) View() string {
-	s := normalTextStyle("\n  What time is it?\n\n").String()
+	var s string
 
 	// Show hours for each zone
 	for zi, zone := range m.zones {

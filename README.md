@@ -33,29 +33,9 @@ The program will adjust to light and dark terminals themes.
 
 # Installing
 
-I provide linux/amd64 builds for "official" releases, and you can build
-from source for your favorite architecture. Kind souls have also
-packaged the program for other OSes.
-
-## Packages
-
-### Brew
-
-Brew has a tz package: `brew install tz`
-
-### Archlinux
-
-If you're an Archlinux user, packages are also available:
-
-  - [tz][tz-arch] follows releases and,
-  - [tz-git][tz-arch-git] builds the `main` git branch.
-
-[tz-arch]: https://aur.archlinux.org/packages/tz
-[tz-arch-git]: https://aur.archlinux.org/packages/tz-git
-
 ### Go
 ```
-go install github.com/oz/tz@latest
+go install github.com/jakewarren/tz@latest
 ```
 
 # Configuration
@@ -78,12 +58,20 @@ TZ_LIST="Europe/Paris,EMEA office;US/Central,US office"
 ```
 
 
+# Changes in the fork
+
+This is a fork of [oz/tz](https://github.com/oz/tz) that contains the following changes:
+- The default behavior is to quit immediately, pass in `-i` to enter into interactive mode
+- Shows the date by default.
+- Removes the 'What time is it?' banner.
+
+
 # Building
 
 You need a recent-ish release of go with modules support:
 
 ```
-git clone https://github.com/oz/tz
+git clone https://github.com/jakewarren/tz
 cd tz
 go build
 ```
@@ -95,12 +83,6 @@ go build
 go test -cover
 ```
 
-
-# Contributing
-
-Please do file bugs, and feature requests.  I am accepting patches too,
-those are the best, but please, open an issue first to discuss your
-changes. 😄
 
 
 # License

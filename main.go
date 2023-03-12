@@ -101,7 +101,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func main() {
-	exitQuick := flag.Bool("q", false, "exit immediately")
+	interactive := flag.Bool("i", false, "run in interactive mode")
 	showVersion := flag.Bool("v", false, "show version")
 	when := flag.Int64("when", 0, "time in seconds since unix epoch")
 	doSearch := flag.Bool("list", false, "list zones by name")
@@ -134,10 +134,10 @@ func main() {
 		zones:     config.Zones,
 		now:       Now.Time(),
 		hour:      Now.Time().Hour(),
-		showDates: false,
+		showDates: true,
 	}
 
-	initialModel.interactive = !*exitQuick
+	initialModel.interactive = *interactive
 
 	p := tea.NewProgram(initialModel)
 	if err := p.Start(); err != nil {
